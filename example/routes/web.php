@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\displayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/homePage', function () {
+    return view('homePage', ['name' => 'Jan', 'surname' => 'Kowalski']);
+});
+
+Route::get('db', [displayController::class, 'db']);
+
 //Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('recipe', 'RecipesController');
-
-
