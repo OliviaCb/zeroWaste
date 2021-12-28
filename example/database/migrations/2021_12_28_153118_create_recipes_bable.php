@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecipesBable extends Migration
+class CreateRecipesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class CreateRecipesBable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('recipe_id');
             $table->string('title');
-            $table->string('photo'); 
+            $table->string('photo');
             $table->string('products');
             $table->string('food_processors');
             $table->string('description');
