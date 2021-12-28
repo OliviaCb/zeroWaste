@@ -8,14 +8,15 @@ class PagesController extends Controller
 {
     public function index(){
     
-        return view('page.index');
+        return view('pages.index');
     }
-    public function przepisy(){
-        return view('page.przepisy');
+    // }
+    public function about(){
+        return view('page.about');
     }
-    public function konto(){
-        return view('page.konto');
-    }
+    // public function konto(){
+    //     return view('page.konto');
+    // }
 
 }
 
