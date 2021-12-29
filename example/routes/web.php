@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\RecipesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,8 @@ Route::get('/users/{id}', function ($id) {
 });
 Route::resource('recipes', 'App\Http\Controllers\RecipesController');
 
+//-----testowanmie wyswietlania przepisow------------------------------------
+Route::get('show', [RecipesController::class, 'show']);
 
 
 // Auth::routes();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RecipesController extends Controller
 {
@@ -45,11 +46,19 @@ class RecipesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+     //testuje wyswietlanie przpeisow ------------------------------------------
+    //public function show($id)
+    //{
         //
+    //}
+
+    public function show()
+    {
+        //return DB::select('SELECT * FROM `recipes`');
+        return DB::table('recipes')->get();
     }
 
+    //koniec testowania przepisow ----------------------------------------------
     /**
      * Show the form for editing the specified resource.
      *
