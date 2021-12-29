@@ -1,7 +1,7 @@
-<h1>Forget Password Email</h1>
+<h1>Mail Resetujący hasło do Aplikacji ZeroWaste</h1>
 
    
 
-You can reset password from bellow link:
+Aby zresetować hasło kliknij poniższy link
 
-<a href="{{ route('reset.password.get', $token) }}">Reset Password</a>
+<a href="{{ route('reset.password.get', $token) }}">Zresetuj moje hasło</a>

@@ -10,7 +10,7 @@
 
     <style type="text/css">
 
-        @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+        @import  url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
   
 
@@ -114,29 +114,29 @@
 
             <ul class="navbar-nav ml-auto">
 
-                @guest
+                <?php if(auth()->guard()->guest()): ?>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="{{ route('login') }}">Zaloguj się</a>
+                        <a class="nav-link" href="<?php echo e(route('login')); ?>">Login</a>
 
                     </li>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="{{ route('register') }}">Zarejestruj się</a>
+                        <a class="nav-link" href="<?php echo e(route('register')); ?>">Register</a>
 
                     </li>
 
-                @else
+                <?php else: ?>
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="{{ route('logout') }}">Wyloguj się</a>
+                        <a class="nav-link" href="<?php echo e(route('logout')); ?>">Logout</a>
 
                     </li>
 
-                @endguest
+                <?php endif; ?>
 
             </ul>
 
@@ -150,10 +150,10 @@
 
   
 
-@yield('content')
+<?php echo $__env->yieldContent('content'); ?>
 
      
 
 </body>
 
-</html>
+</html><?php /**PATH D:\zeroWaste\example\resources\views/layout.blade.php ENDPATH**/ ?>

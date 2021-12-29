@@ -1,8 +1,8 @@
-@extends('layout')
+
 
   
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <main class="login-form">
 
@@ -20,21 +20,22 @@
 
   
 
-                    @if (Session::has('message'))
+                    <?php if(Session::has('message')): ?>
 
                          <div class="alert alert-success" role="alert">
 
-                            {{ Session::get('message') }}
+                            <?php echo e(Session::get('message')); ?>
+
 
                         </div>
 
-                    @endif
+                    <?php endif; ?>
 
   
 
-                      <form action="{{ route('forget.password.post') }}" method="POST">
+                      <form action="<?php echo e(route('forget.password.post')); ?>" method="POST">
 
-                          @csrf
+                          <?php echo csrf_field(); ?>
 
                           <div class="form-group row">
 
@@ -44,11 +45,11 @@
 
                                   <input type="text" id="email_address" class="form-control" name="email" required autofocus>
 
-                                  @if ($errors->has('email'))
+                                  <?php if($errors->has('email')): ?>
 
-                                      <span class="text-danger">{{ $errors->first('email') }}</span>
+                                      <span class="text-danger"><?php echo e($errors->first('email')); ?></span>
 
-                                  @endif
+                                  <?php endif; ?>
 
                               </div>
 
@@ -80,4 +81,5 @@
 
 </main>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\zeroWaste\example\resources\views/auth/forgetPassword.blade.php ENDPATH**/ ?>

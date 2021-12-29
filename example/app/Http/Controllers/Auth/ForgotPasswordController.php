@@ -96,7 +96,7 @@ class ForgotPasswordController extends Controller
 
   
 
-          return back()->with('message', 'We have e-mailed your password reset link!');
+          return back()->with('message', 'Wysłaliśmy link resetujący hasło na podany adres. Jeżeli nie możesz znaleźć maila - sprawdź folder SPAM.');
 
       }
 
@@ -176,7 +176,7 @@ class ForgotPasswordController extends Controller
 
   
 
-          return redirect('/login')->with('message', 'Your password has been changed!');
+          return redirect('/login')->with('message', 'Twoje hasło zostało zmienione');
 
       }
 

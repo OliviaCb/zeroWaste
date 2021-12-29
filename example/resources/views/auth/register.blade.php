@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Zarejestruj nowego użytkownika') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Adres E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Hasło') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Potwierdź hasło') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -62,7 +62,7 @@
                         </div>
 						
 						                     <div class="row mb-3">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Firstname') }}</label>
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Imię') }}</label>
 
                             <div class="col-md-6">
 						<input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
 					                     <div class="row mb-3">
-                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Nazwisko') }}</label>
 
                             <div class="col-md-6">
 						<input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
@@ -90,7 +90,7 @@
 						
 						
 											                     <div class="row mb-3">
-                            <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Birthday') }}</label>
+                            <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Data urodzenia') }}</label>
 
                             <div class="col-md-6">
 						<input id="birthday" type="date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required autocomplete="birthday" autofocus>
@@ -105,18 +105,18 @@
 						
  <div class="form-group row ">
                                 <div class="col-md-12">
-                                    <label for="gender" class= "col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                                    <label for="gender" class= "col-md-4 col-form-label text-md-right">{{ __('Płeć') }}</label>
                             <div class="form-check form-check-inline" >
                                 <input class="form-check-input" type="radio" name="gender" value="male">
-                                <label class="form-check-label" for="male">Male</label>
+                                <label class="form-check-label" for="male">Mężczyzna</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="gender" value="female">
-                                <label class="form-check-label" for="female">Female</label>
+                                <label class="form-check-label" for="female">Kobieta</label>
                             </div>                            
 							<div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="gender" value="other">
-                                <label class="form-check-label" for="other">Other</label>
+                                <label class="form-check-label" for="other">Inna</label>
                             </div>
                                 </div>
 
@@ -126,7 +126,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Zarejestruj') }}
                                 </button>
                             </div>
                         </div>
