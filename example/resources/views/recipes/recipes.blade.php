@@ -17,6 +17,7 @@
       <th scope="col">Opis przygotowania</th>
       <th scope="col">Czas przygotowania</th>
       <th scope="col">Trudność przygotowania</th>
+      <th scope="col">Sprawdź przepis</th>
     </tr>
   </thead>
   <tbody>
@@ -30,13 +31,15 @@
       <td>{{$recipe->description}}</td>
       <td>{{$recipe->time}} min</td>
       <td>{{$recipe->level}}/5</td>
+      <!--<td><a href=\'show.php?id={{$recipe->recipe_id}}' class="btn btn-secondary">Sprawdź</a></td>-->
+      <td><a href=\show class="btn btn-secondary">Sprawdź</a></td>
     </tr>
     @endforeach
   </tbody>
 </table>
 
 <!--zakończenie wyświetlania przepisów-->
-
+<!--
 @if(count($recipes)>1)
 @foreach($recipes as $recipe)
 <div class="well">
@@ -46,5 +49,5 @@
 @endforeach
 @else
 
-@endif
+@endif-->
 @endsection

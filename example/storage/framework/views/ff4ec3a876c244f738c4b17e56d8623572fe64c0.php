@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-<h1>O stronie ZeroWaste</h1>
+<h1>Informacje o stronie</h1>
 
 <?php $__env->stopSection(); ?>
 

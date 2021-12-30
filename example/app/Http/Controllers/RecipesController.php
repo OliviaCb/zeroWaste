@@ -55,7 +55,9 @@ class RecipesController extends Controller
     public function show()
     {
         //return DB::select('SELECT * FROM `recipes`');
-        return DB::table('recipes')->get();
+        return DB::table('recipes')
+        ->where('recipe_id', '1')
+        ->get();
     }
 
     //koniec testowania przepisow ----------------------------------------------

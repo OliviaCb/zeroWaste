@@ -17,6 +17,7 @@
       <th scope="col">Opis przygotowania</th>
       <th scope="col">Czas przygotowania</th>
       <th scope="col">Trudność przygotowania</th>
+      <th scope="col">Sprawdź przepis</th>
     </tr>
   </thead>
   <tbody>
@@ -30,13 +31,15 @@
       <td><?php echo e($recipe->description); ?></td>
       <td><?php echo e($recipe->time); ?> min</td>
       <td><?php echo e($recipe->level); ?>/5</td>
+      <!--<td><a href=\'show.php?id=<?php echo e($recipe->recipe_id); ?>' class="btn btn-secondary">Sprawdź</a></td>-->
+      <td><a href=\show class="btn btn-secondary">Sprawdź</a></td>
     </tr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
 
 <!--zakończenie wyświetlania przepisów-->
-
+<!--
 <?php if(count($recipes)>1): ?>
 <?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recipe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 <div class="well">
@@ -46,7 +49,7 @@
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 <?php else: ?>
 
-<?php endif; ?>
+<?php endif; ?>-->
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\bukow\Documents\GitHub\zeroWaste\example\resources\views/recipes/recipes.blade.php ENDPATH**/ ?>
