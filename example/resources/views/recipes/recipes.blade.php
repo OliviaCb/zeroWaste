@@ -2,11 +2,27 @@
 
 @section('content')
 
-<h1>Przepisy</h1>
-
 <!--tutaj powstaje wyswietlanie przepisów-->
 
-<table class="table">
+<div class="row">
+       <div class="col-lg-12 margin-tb">
+           <div class="pull-left">
+               <h1>Przepisy</h1>
+           </div>
+           <div class="pull-right">
+               <center><a class="btn btn-warning" href="{{ route('recipes.create') }}" title="Dodaj przepis">Dodaj nowy przepis</a></center><br>
+           </div>
+       </div>
+   </div>
+
+   @if ($message = Session::get('success'))
+       <div class="alert alert-success">
+           <p>{{ $message }}</p>
+       </div>
+   @endif
+
+<!--<table class="table">-->
+<table class="table table-bordered table-responsive-lg">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -17,7 +33,7 @@
       <th scope="col">Opis przygotowania</th>
       <th scope="col">Czas przygotowania</th>
       <th scope="col">Trudność przygotowania</th>
-      <th scope="col">Sprawdź przepis</th>
+      <th width="280px">Akcja</th>
     </tr>
   </thead>
   <tbody>
@@ -32,7 +48,24 @@
       <td>{{$recipe->time}} min</td>
       <td>{{$recipe->level}}/5</td>
       <!--<td><a href=\'show.php?id={{$recipe->recipe_id}}' class="btn btn-secondary">Sprawdź</a></td>-->
-      <td><a href=\show class="btn btn-secondary">Sprawdź</a></td>
+      <!--<td><a href=\show class="btn btn-secondary">Sprawdź</a></td>-->
+      <!--nowa treść-->
+      <td>
+      <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">
+
+                        <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn btn-success">Wyświetl</a>
+
+                        <a href="{{ route('recipes.edit', $recipe->recipe_id) }}" title="edytuj" class="btn btn-primary">Edytuj</a>
+
+                        @csrf
+                        @method('DELETE')
+
+                        <a type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</a>
+
+                        </button>
+                    </form>
+                  </td>
+      <!--koniec nowej treści-->
     </tr>
     @endforeach
   </tbody>
