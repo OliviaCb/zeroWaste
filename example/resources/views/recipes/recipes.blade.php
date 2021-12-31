@@ -60,7 +60,7 @@
                         @csrf
                         @method('DELETE')
 
-                        <a type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</a>
+                        <button type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</button>
 
                         </button>
                     </form>

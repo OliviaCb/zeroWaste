@@ -32,7 +32,7 @@ class RecipesController extends Controller
     public function create()
     {
       //
-         return view('projects.create');
+         return view('recipes.create');
     }
 
     /**
@@ -109,7 +109,7 @@ class RecipesController extends Controller
             'food_processors' => 'required',
             'time' => 'required'
         ]);
-        $project->update($request->all());
+        $recipe->update($request->all());
 
         return redirect()->route('recipes.index')
             ->with('success', 'Przepis został zaktualizowany');
