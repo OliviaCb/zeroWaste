@@ -3,6 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
+            <!-- @if (session('status'))
+            <h6 class="alert alert-success">{{session('status')}}</h6>
+            @endif -->
             <div class="pull-left">
                 <h2>Dodaj nowy przepis</h2>
             </div>
@@ -22,14 +25,19 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('recipes.store') }}" method="POST" >
+    <form action="{{ route('recipes.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
+        
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tytuł:</strong>
                     <input type="text" name="title" class="form-control" placeholder="Tytuł">
+                </div>
+            </div>   <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Zdjęcie:</strong>
+                    <input type="file" name="photo" class="form-control" placeholder="Zdjęcie">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

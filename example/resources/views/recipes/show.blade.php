@@ -19,6 +19,14 @@
             <div class="form-group">
                 <strong>Tytuł:</strong>
                 {{ $recipe->title }}
+              
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Zdjęcie:</strong>
+                <img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt="">
+             
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -31,6 +39,11 @@
             <div class="form-group">
                 <strong>Maszyny kuchenne:</strong>
                 {{ $recipe->food_processors }}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Opis</strong>
+                {{ $recipe->description }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

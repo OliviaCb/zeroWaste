@@ -27,9 +27,8 @@ Route::get('/about', 'App\Http\Controllers\PagesController@about');
 //Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/przepisy', function () {
-    return '<h1>tu będą przepisy</h1>';
-});
+Route::get('/recipes', 'RecipesController@index');
+
 Route::get('/about', function () {
     return view('pages.about');
 });

@@ -18,8 +18,10 @@ class Recipe extends Model
 
     protected $fillable = [
         'title',
+        'photo',
         'products',
         'food_processors',
-        'time'
+        'time', 
+
     ];
 }

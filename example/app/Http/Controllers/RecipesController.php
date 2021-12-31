@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use SebastianBergmann\Environment\Console;
+use Illuminate\Support\Facades\File;
+
 //use Illuminate\Support\Facades\DB;
 
 class RecipesController extends Controller
@@ -43,13 +46,37 @@ class RecipesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $request->validate([
-            'title' => 'required',
-            'products' => 'required',
-            'food_processors' => 'required',
-            'time' => 'required'
-        ]);
+
+            $recipes = new Recipe;
+            $recipes->title = $request->input('title');
+           
+         if($request->hasfile('photo'))
+             {
+                $file = $request->file('photo');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extension;
+                $file->move('../public/uploads/recipes',$filename);
+                $recipes->photo=$filename;
+            }
+           
+            $recipes->products = $request->input('products');
+            $recipes->food_processors = $request->input('food_processors');
+            $recipes->time = $request->input('time');
+         
+      
+    //         $request->validate([
+    //             'title' => 'required',
+    //             if($request->hasFile('photo'))
+    //             {
+    // $file = $request->file('photo');
+    // $extension = $file->getClientOriginalExtension();
+    // $filename = time().'.'.$extension
+    //             }
+    //             'photo' => 'required',
+    //             'products' => 'required',
+    //             'food_processors' => 'required',
+    //             'time' => 'required'
+        // ]);
 
         Recipe::create($request->all());
 

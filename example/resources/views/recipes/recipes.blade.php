@@ -41,7 +41,9 @@
     <tr>
       <th scope="row">{{$recipe->recipe_id}}</th>
       <td>{{$recipe->title}}</td>
-      <td>{{$recipe->photo}}</td>
+      <!-- <td>{{$recipe->photo}}  -->
+      <td>
+        <img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt=""></td>
       <td>{{$recipe->products}}</td>
       <td>{{$recipe->food_processors}}</td>
       <td>{{$recipe->description}}</td>

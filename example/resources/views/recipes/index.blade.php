@@ -2,6 +2,6 @@
 
 @section('content')
 
-<h1>Recipes</h1>
+<h1>Przepisy</h1>
 
 @endsection
