@@ -25,12 +25,12 @@
 <table class="table table-bordered table-responsive-lg">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Tytuł</th>
+      <!--<th scope="col">ID</th>-->
+      <th scope="col">Nazwa potrawy</th>
       <th scope="col">Zdjęcie</th>
       <th scope="col">Składniki</th>
       <th scope="col">Urządzenia kuchenne</th>
-      <th scope="col">Opis przygotowania</th>
+      <!--<th scope="col">Opis przygotowania</th>-->
       <th scope="col">Czas przygotowania</th>
       <th scope="col">Trudność przygotowania</th>
       <th width="280px">Akcja</th>
@@ -39,7 +39,7 @@
   <tbody>
     <?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recipe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <tr>
-      <th scope="row"><?php echo e($recipe->recipe_id); ?></th>
+      <!--<th scope="row"><?php echo e($recipe->recipe_id); ?></th>-->
       <td><?php echo e($recipe->title); ?></td>
       <!-- <td><?php echo e($recipe->photo); ?>  -->
       <td>
@@ -48,7 +48,7 @@
       </td>
       <td><?php echo e($recipe->products); ?></td>
       <td><?php echo e($recipe->food_processors); ?></td>
-      <td><?php echo e($recipe->description); ?></td>
+      <!--<td><?php echo e($recipe->description); ?></td>-->
       <td><?php echo e($recipe->time); ?> min</td>
       <td><?php echo e($recipe->level); ?>/5</td>
       <td>
@@ -70,6 +70,8 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
+<?php echo $recipes->links("pagination::bootstrap-4"); ?>
+
 
 <?php $__env->stopSection(); ?>
 

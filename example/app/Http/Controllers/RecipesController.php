@@ -18,13 +18,13 @@ class RecipesController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::all();
-        return view('recipes.recipes')->with('recipes', $recipes);
+        //$recipes = Recipe::all();
+        //return view('recipes.recipes')->with('recipes', $recipes);
 
-        //$recipes = Recipe::latest()->paginate(10);
+        $recipes = Recipe::latest()->paginate(5);
 
-        //return view('recipes.index', compact('recipes'))
-          //  ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('recipes.recipes', compact('recipes'))
+          ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -49,7 +49,7 @@ class RecipesController extends Controller
 
             $recipes = new Recipe;
             $recipes->title = $request->input('title');
-           
+
          if($request->hasfile('photo'))
              {
                 $file = $request->file('photo');
@@ -58,12 +58,12 @@ class RecipesController extends Controller
                 $file->move('../public/uploads/recipes',$filename);
                 $recipes->photo=$filename;
             }
-           
+
             $recipes->products = $request->input('products');
             $recipes->food_processors = $request->input('food_processors');
             $recipes->time = $request->input('time');
-         
-      
+
+
     //         $request->validate([
     //             'title' => 'required',
     //             if($request->hasFile('photo'))

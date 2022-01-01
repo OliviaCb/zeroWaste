@@ -6,9 +6,6 @@
             <div class="pull-left">
                 <h2>Edycja przepisu</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="<?php echo e(route('recipes.index')); ?>" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
-            </div>
         </div>
     </div>
 
@@ -79,10 +76,13 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-dark">Submit</button>
             </div>
         </div>
-
+        <br><br>
+        <div class="pull-right">
+            <a class="btn btn-primary" href="<?php echo e(route('recipes.index')); ?>" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
+        </div>
     </form>
 <?php $__env->stopSection(); ?>
 

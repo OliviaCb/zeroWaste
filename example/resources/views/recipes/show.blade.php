@@ -7,9 +7,6 @@
             <div class="pull-left">
                 <h1> {{ $recipe->title }}</h1>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('recipes.index') }}" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
-            </div>
         </div>
     </div>
 <!--
@@ -85,6 +82,9 @@
         </dl>
       </dd>
     </dl>
-
+    <br><br>
+    <div class="pull-right">
+        <a class="btn btn-primary" href="{{ route('recipes.index') }}" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
+    </div>
     <!--end of bootstrap-->
 @endsection

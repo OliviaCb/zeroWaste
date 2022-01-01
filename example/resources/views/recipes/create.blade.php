@@ -9,9 +9,7 @@
             <div class="pull-left">
                 <h2>Dodaj nowy przepis</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('recipes.index') }}" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
-            </div>
+
         </div>
     </div>
 
@@ -67,14 +65,17 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Poziom trudności:</strong>
-                    <input type="number" name="level" class="form-control" placeholder="Poziom trudności w skali od 1 do 5">
+                    <strong>Poziom trudności w skali od 1 do 5:</strong>
+                    <input type="text" name="level" class="form-control" pattern= "[1-5]{1}" placeholder="Poziom trudności w skali od 1 do 5">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-dark">Submit</button>
             </div>
         </div>
-
+        <br><br>
+        <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('recipes.index') }}" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
+        </div>
     </form>
 @endsection

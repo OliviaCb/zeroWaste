@@ -25,12 +25,12 @@
 <table class="table table-bordered table-responsive-lg">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Tytuł</th>
+      <!--<th scope="col">ID</th>-->
+      <th scope="col">Nazwa potrawy</th>
       <th scope="col">Zdjęcie</th>
       <th scope="col">Składniki</th>
       <th scope="col">Urządzenia kuchenne</th>
-      <th scope="col">Opis przygotowania</th>
+      <!--<th scope="col">Opis przygotowania</th>-->
       <th scope="col">Czas przygotowania</th>
       <th scope="col">Trudność przygotowania</th>
       <th width="280px">Akcja</th>
@@ -39,7 +39,7 @@
   <tbody>
     @foreach($recipes as $recipe)
     <tr>
-      <th scope="row">{{$recipe->recipe_id}}</th>
+      <!--<th scope="row">{{$recipe->recipe_id}}</th>-->
       <td>{{$recipe->title}}</td>
       <!-- <td>{{$recipe->photo}}  -->
       <td>
@@ -48,7 +48,7 @@
       </td>
       <td>{{$recipe->products}}</td>
       <td>{{$recipe->food_processors}}</td>
-      <td>{{$recipe->description}}</td>
+      <!--<td>{{$recipe->description}}</td>-->
       <td>{{$recipe->time}} min</td>
       <td>{{$recipe->level}}/5</td>
       <td>
@@ -70,5 +70,6 @@
     @endforeach
   </tbody>
 </table>
+{!! $recipes->links("pagination::bootstrap-4") !!}
 
 @endsection
