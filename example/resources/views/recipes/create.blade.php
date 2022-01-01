@@ -3,13 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <!-- @if (session('status'))
-            <h6 class="alert alert-success">{{session('status')}}</h6>
-            @endif -->
             <div class="pull-left">
                 <h2>Dodaj nowy przepis</h2>
             </div>
-
         </div>
     </div>
 

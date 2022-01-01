@@ -2,8 +2,6 @@
 
 <?php $__env->startSection('content'); ?>
 
-<!--tutaj powstaje wyswietlanie przepisów-->
-
 <div class="row">
        <div class="col-lg-12 margin-tb">
            <div class="pull-left">
@@ -21,34 +19,27 @@
        </div>
    <?php endif; ?>
 
-<!--<table class="table">-->
 <table class="table table-bordered table-responsive-lg">
   <thead>
     <tr>
-      <!--<th scope="col">ID</th>-->
       <th scope="col">Nazwa potrawy</th>
       <th scope="col">Zdjęcie</th>
       <th scope="col">Składniki</th>
       <th scope="col">Urządzenia kuchenne</th>
-      <!--<th scope="col">Opis przygotowania</th>-->
       <th scope="col">Czas przygotowania</th>
       <th scope="col">Trudność przygotowania</th>
-      <th width="280px">Akcja</th>
+      <th width="240px">Akcja</th>
     </tr>
   </thead>
   <tbody>
     <?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recipe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <tr>
-      <!--<th scope="row"><?php echo e($recipe->recipe_id); ?></th>-->
       <td><?php echo e($recipe->title); ?></td>
-      <!-- <td><?php echo e($recipe->photo); ?>  -->
       <td>
         <img src="<?php echo e(asset('../public/uploads/recipes/'.$recipe->photo)); ?>" width="70px" height = "70px" alt="">
-        <!--<img src="<?php echo e(asset('../public/uploads/recipes/' . $recipe->photo)); ?>" />-->
       </td>
       <td><?php echo e($recipe->products); ?></td>
       <td><?php echo e($recipe->food_processors); ?></td>
-      <!--<td><?php echo e($recipe->description); ?></td>-->
       <td><?php echo e($recipe->time); ?> min</td>
       <td><?php echo e($recipe->level); ?>/5</td>
       <td>

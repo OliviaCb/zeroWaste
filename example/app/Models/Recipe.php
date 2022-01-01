@@ -12,9 +12,6 @@ class Recipe extends Model
     protected $table = 'recipes';
     public $timestamps = true;
     protected $primaryKey = 'recipe_id';
-  //  protected $casts = [
-  //      'cost' => 'float'
-  //  ];
 
     protected $fillable = [
         'title',

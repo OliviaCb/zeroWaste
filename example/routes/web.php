@@ -37,15 +37,6 @@ Route::get('/users/{id}', function ($id) {
 });
 Route::resource('recipes', 'App\Http\Controllers\RecipesController');
 
-//-----testowanmie wyswietlania przepisow------------------------------------
-//Route::get('show', [RecipesController::class, 'show']);
-
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 Route::get('/', function () {
     return view('/auth/login');
 });

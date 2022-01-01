@@ -9,55 +9,6 @@
             </div>
         </div>
     </div>
-<!--
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Tytuł:</strong>
-                {{ $recipe->title }}
-
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Zdjęcie:</strong>
-                <img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt="">
-
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Składniki:</strong>
-                {{ $recipe->products }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Maszyny kuchenne:</strong>
-                {{ $recipe->food_processors }}
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Opis</strong>
-                {{ $recipe->description }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Czas przygotowania:</strong>
-                {{ $recipe->time }} min
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Trudność przygotowania:</strong>
-                {{ $recipe->level }}/5
-            </div>
-        </div>
-    </div>
--->
-    <!--bootstrap edyszyn-->
-
     <dl class="row">
       <dt class="col-sm-3">Nazwa potrawy</dt>
       <dd class="col-sm-9">{{ $recipe->title }}</dd>
@@ -92,5 +43,4 @@
     <div class="pull-right">
         <a class="btn btn-primary" href="{{ route('recipes.index') }}" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
     </div>
-    <!--end of bootstrap-->
 @endsection

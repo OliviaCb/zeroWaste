@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 use Illuminate\Support\Facades\File;
 
-//use Illuminate\Support\Facades\DB;
 
 class RecipesController extends Controller
 {
@@ -90,32 +89,20 @@ class RecipesController extends Controller
      * @param  \App\Models\Recipe  $Recipe
      * @return \Illuminate\Http\Response
      */
-     //testuje wyswietlanie przpeisow ------------------------------------------
-    //public function show($id)
-    //{
-        //
-    //}
 
     public function show(Recipe $recipe)
     {
-        //return DB::select('SELECT * FROM `recipes`');
-      //  return DB::table('recipes')
-      //  ->where('recipe_id', '1')
-      //  ->get();
        return view('recipes.show', compact('recipe'));
     }
 
-    //koniec testowania przepisow ----------------------------------------------
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Recipe  $Recipe
      * @return \Illuminate\Http\Response
      */
-    //public function edit($id)
     public function edit(Recipe $recipe)
     {
-        //
         return view('recipes.edit', compact('recipe'));
     }
 
@@ -126,10 +113,8 @@ class RecipesController extends Controller
      * @param  \App\Models\Recipe  $Recipe
      * @return \Illuminate\Http\Response
      */
-    //public function update(Request $request, $id)
     public function update(Request $request, Recipe $recipe)
     {
-        //
         $request->validate([
             'title' => 'required',
             'products' => 'required',
@@ -150,10 +135,8 @@ class RecipesController extends Controller
      * @param  \App\Models\Recipe  $Recipe
      * @return \Illuminate\Http\Response
      */
-    //public function destroy($id)
     public function destroy(Recipe $recipe)
     {
-        //
         $recipe->delete();
 
         return redirect()->route('recipes.index')

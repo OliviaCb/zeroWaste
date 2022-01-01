@@ -2,8 +2,6 @@
 
 @section('content')
 
-<!--tutaj powstaje wyswietlanie przepisów-->
-
 <div class="row">
        <div class="col-lg-12 margin-tb">
            <div class="pull-left">
@@ -21,34 +19,27 @@
        </div>
    @endif
 
-<!--<table class="table">-->
 <table class="table table-bordered table-responsive-lg">
   <thead>
     <tr>
-      <!--<th scope="col">ID</th>-->
       <th scope="col">Nazwa potrawy</th>
       <th scope="col">Zdjęcie</th>
       <th scope="col">Składniki</th>
       <th scope="col">Urządzenia kuchenne</th>
-      <!--<th scope="col">Opis przygotowania</th>-->
       <th scope="col">Czas przygotowania</th>
       <th scope="col">Trudność przygotowania</th>
-      <th width="280px">Akcja</th>
+      <th width="240px">Akcja</th>
     </tr>
   </thead>
   <tbody>
     @foreach($recipes as $recipe)
     <tr>
-      <!--<th scope="row">{{$recipe->recipe_id}}</th>-->
       <td>{{$recipe->title}}</td>
-      <!-- <td>{{$recipe->photo}}  -->
       <td>
         <img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt="">
-        <!--<img src="{{ asset('../public/uploads/recipes/' . $recipe->photo) }}" />-->
       </td>
       <td>{{$recipe->products}}</td>
       <td>{{$recipe->food_processors}}</td>
-      <!--<td>{{$recipe->description}}</td>-->
       <td>{{$recipe->time}} min</td>
       <td>{{$recipe->level}}/5</td>
       <td>
