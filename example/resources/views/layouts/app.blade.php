@@ -83,6 +83,12 @@
                             </li>
                         @endguest
                     </ul>
+                    <form role="search" class="search-form" type="get" action="{{ url('/search') }}">
+                      <label>
+                      <input class="form-control" name="query" type="serach" placeholder="Wyszukaj przepis">
+                    </label>
+                      <button class="btn btn-outline-dark" type="submit">Wyszukaj</button>
+                    </form>
                 </div>
             </div>
         </nav>

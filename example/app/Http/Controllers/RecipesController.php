@@ -18,7 +18,7 @@ class RecipesController extends Controller
     public function index()
     {
         //$recipes = Recipe::all();
-        //return view('recipes.recipes')->with('recipes', $recipes);
+      //  return view('recipes.recipes')->with('recipes', $recipes);
 
         $recipes = Recipe::latest()->paginate(5);
 
@@ -141,5 +141,13 @@ class RecipesController extends Controller
 
         return redirect()->route('recipes.index')
             ->with('success', 'Przepis został usunięty');
+    }
+
+    public function search()
+    {
+      $search_text = $_GET['query'];
+      $recipe = Recipe::where('title', 'LIKE', '%'.$search_text.'%')->get();
+
+      return view('recipes.search', compact('recipe'));
     }
 }

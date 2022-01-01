@@ -41,6 +41,8 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
+Route::get('/search','App\Http\Controllers\RecipesController@search');
+
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\PagesController@index');

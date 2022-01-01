@@ -61,8 +61,7 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
-<?php echo $recipes->links("pagination::bootstrap-4"); ?>
-
+<?php echo $recipes->links("pagination::bootstrap-4"); ?>-
 
 <?php $__env->stopSection(); ?>
 

@@ -3,13 +3,9 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <!-- <?php if(session('status')): ?>
-            <h6 class="alert alert-success"><?php echo e(session('status')); ?></h6>
-            <?php endif; ?> -->
             <div class="pull-left">
                 <h2>Dodaj nowy przepis</h2>
             </div>
-
         </div>
     </div>
 

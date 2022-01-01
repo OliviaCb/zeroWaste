@@ -61,6 +61,6 @@
     @endforeach
   </tbody>
 </table>
-{!! $recipes->links("pagination::bootstrap-4") !!}
+{!! $recipes->links("pagination::bootstrap-4") !!}-
 
 @endsection
