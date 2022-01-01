@@ -40,26 +40,28 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+
                         <li class="nav-item">
-                                    <a class="nav-link" href="/">Strona Główna</a>
+                            <a class="nav-link" href="/">Strona Główna</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/about">O stronie</a>
+                            <a class="nav-link" href="/about">O stronie</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="../recipes">Przepisy</a>
+                            <a class="nav-link" href="../recipes">Przepisy</a>
                                 </li>
+
                         <?php if(auth()->guard()->guest()): ?>
                             <?php if(Route::has('login')): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
+                                    <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Zaloguj się')); ?></a>
                                 </li>
                             <?php endif; ?>
 
                             <?php if(Route::has('register')): ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
-                                </li>s
+                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Zarejestruj się')); ?></a>
+                                </li>
                             <?php endif; ?>
                         <?php else: ?>
                             <li class="nav-item dropdown">
@@ -72,7 +74,7 @@
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <?php echo e(__('Logout')); ?>
+                                        <?php echo e(__('Wyloguj się')); ?>
 
                                     </a>
 
@@ -87,7 +89,7 @@
             </div>
         </nav>
 
-        <main class="py-4 container">
+        <main class="py-4">
             <?php echo $__env->yieldContent('content'); ?>
         </main>
     </div>

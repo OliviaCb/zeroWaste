@@ -41,7 +41,9 @@
     <tr>
       <th scope="row"><?php echo e($recipe->recipe_id); ?></th>
       <td><?php echo e($recipe->title); ?></td>
-      <td><?php echo e($recipe->photo); ?></td>
+      <!-- <td><?php echo e($recipe->photo); ?>  -->
+      <td>
+        <img src="<?php echo e(asset('../public/uploads/recipes/'.$recipe->photo)); ?>" width="70px" height = "70px" alt=""></td>
       <td><?php echo e($recipe->products); ?></td>
       <td><?php echo e($recipe->food_processors); ?></td>
       <td><?php echo e($recipe->description); ?></td>
