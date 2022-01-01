@@ -7,8 +7,7 @@
                 <h2>Edycja przepisu</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('recipes.index') }}" title="Go back"> <i
-                        class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="{{ route('recipes.index') }}" title="Powrót" class="fas fa-backward ">Powrót do poprzedniej strony</a>
             </div>
         </div>
     </div>
@@ -35,15 +34,15 @@
                     <input type="text" name="title" value="{{ $recipe->title }}" class="form-control" placeholder="Tytuł">
                 </div>
             </div>
-           
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Zdjęcie:</strong>
-            
+
                     <input type="file" name="photo" value="{{ $recipe->photo }}" class="form-control" placeholder="Zdjęcie">
                 </div>
             </div>
-          
+
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Produkty:</strong>

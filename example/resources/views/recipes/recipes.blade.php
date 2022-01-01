@@ -43,15 +43,14 @@
       <td>{{$recipe->title}}</td>
       <!-- <td>{{$recipe->photo}}  -->
       <td>
-        <img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt=""></td>
+        <img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt="">
+        <!--<img src="{{ asset('../public/uploads/recipes/' . $recipe->photo) }}" />-->
+      </td>
       <td>{{$recipe->products}}</td>
       <td>{{$recipe->food_processors}}</td>
       <td>{{$recipe->description}}</td>
       <td>{{$recipe->time}} min</td>
       <td>{{$recipe->level}}/5</td>
-      <!--<td><a href=\'show.php?id={{$recipe->recipe_id}}' class="btn btn-secondary">Sprawdź</a></td>-->
-      <!--<td><a href=\show class="btn btn-secondary">Sprawdź</a></td>-->
-      <!--nowa treść-->
       <td>
       <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">
 
@@ -67,22 +66,9 @@
                         </button>
                     </form>
                   </td>
-      <!--koniec nowej treści-->
     </tr>
     @endforeach
   </tbody>
 </table>
 
-<!--zakończenie wyświetlania przepisów-->
-<!--
-@if(count($recipes)>1)
-@foreach($recipes as $recipe)
-<div class="well">
-    <h3>{{$recipe->title}}</h3>
-</div>
-
-@endforeach
-@else
-
-@endif-->
 @endsection

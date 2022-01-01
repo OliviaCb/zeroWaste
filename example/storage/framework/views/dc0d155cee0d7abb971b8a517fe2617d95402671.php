@@ -3,6 +3,9 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-lg-12 margin-tb">
+            <!-- <?php if(session('status')): ?>
+            <h6 class="alert alert-success"><?php echo e(session('status')); ?></h6>
+            <?php endif; ?> -->
             <div class="pull-left">
                 <h2>Dodaj nowy przepis</h2>
             </div>
@@ -22,7 +25,7 @@
             </ul>
         </div>
     <?php endif; ?>
-    <form action="<?php echo e(route('recipes.store')); ?>" method="POST" >
+    <form action="<?php echo e(route('recipes.store')); ?>" method="POST" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
 
         <div class="row">
@@ -30,6 +33,11 @@
                 <div class="form-group">
                     <strong>Tytuł:</strong>
                     <input type="text" name="title" class="form-control" placeholder="Tytuł">
+                </div>
+            </div>   <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Zdjęcie:</strong>
+                    <input type="file" name="photo" class="form-control" placeholder="Zdjęcie">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,8 +55,20 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Opis przygotowania:</strong>
+                    <input type="text" name="description" class="form-control" placeholder="Opis przygotowania">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Czas przygotowania:</strong>
                     <input type="number" name="time" class="form-control" placeholder="Czas przygotowania">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Poziom trudności:</strong>
+                    <input type="number" name="level" class="form-control" placeholder="Poziom trudności w skali od 1 do 5">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

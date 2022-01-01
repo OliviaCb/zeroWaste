@@ -43,15 +43,14 @@
       <td><?php echo e($recipe->title); ?></td>
       <!-- <td><?php echo e($recipe->photo); ?>  -->
       <td>
-        <img src="<?php echo e(asset('../public/uploads/recipes/'.$recipe->photo)); ?>" width="70px" height = "70px" alt=""></td>
+        <img src="<?php echo e(asset('../public/uploads/recipes/'.$recipe->photo)); ?>" width="70px" height = "70px" alt="">
+        <!--<img src="<?php echo e(asset('../public/uploads/recipes/' . $recipe->photo)); ?>" />-->
+      </td>
       <td><?php echo e($recipe->products); ?></td>
       <td><?php echo e($recipe->food_processors); ?></td>
       <td><?php echo e($recipe->description); ?></td>
       <td><?php echo e($recipe->time); ?> min</td>
       <td><?php echo e($recipe->level); ?>/5</td>
-      <!--<td><a href=\'show.php?id=<?php echo e($recipe->recipe_id); ?>' class="btn btn-secondary">Sprawdź</a></td>-->
-      <!--<td><a href=\show class="btn btn-secondary">Sprawdź</a></td>-->
-      <!--nowa treść-->
       <td>
       <form action="<?php echo e(route('recipes.destroy', $recipe->recipe_id)); ?>" method="POST">
 
@@ -67,24 +66,11 @@
                         </button>
                     </form>
                   </td>
-      <!--koniec nowej treści-->
     </tr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
 
-<!--zakończenie wyświetlania przepisów-->
-<!--
-<?php if(count($recipes)>1): ?>
-<?php $__currentLoopData = $recipes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recipe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<div class="well">
-    <h3><?php echo e($recipe->title); ?></h3>
-</div>
-
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-<?php else: ?>
-
-<?php endif; ?>-->
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\bukow\Documents\GitHub\zeroWaste\example\resources\views/recipes/recipes.blade.php ENDPATH**/ ?>

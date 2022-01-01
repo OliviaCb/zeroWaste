@@ -21,7 +21,8 @@ class Recipe extends Model
         'photo',
         'products',
         'food_processors',
-        'time', 
-
+        'description',
+        'time',
+        'level',
     ];
 }
