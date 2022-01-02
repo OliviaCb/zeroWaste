@@ -51,7 +51,6 @@ Route::get('/home', 'App\Http\Controllers\PagesController@index');
 Auth::routes();
 
 
-
 Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
 
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
