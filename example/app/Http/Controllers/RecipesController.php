@@ -77,7 +77,16 @@ class RecipesController extends Controller
     //             'time' => 'required'
         // ]);
 
-        Recipe::create($request->all());
+        Recipe::create([
+            'title' =>$request->input('title'),
+            'photo' =>$filename,
+            'products' =>$request->input('products'),
+            'food_processors' =>$request->input('food_processors'),
+            'description' =>$request->input('description'),
+            'time' =>$request->input('time'),
+            'level' =>$request->input('level')
+        ]);
+        //Recipe::create($request->all());
 
         return redirect()->route('recipes.index')
             ->with('success', 'Przepis został dodany do bazy.');

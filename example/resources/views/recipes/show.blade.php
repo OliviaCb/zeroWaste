@@ -15,7 +15,7 @@
       <HR NOSHADE>
 
       <dt class="col-sm-3">Zdjęcie</dt>
-      <dd class="col-sm-9"><img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt=""></dd>
+      <dd class="col-sm-9"><img src="{{ asset('uploads/recipes/'.$recipe->photo) }}" width="300px" height = "300px" alt=""></dd>
       <HR NOSHADE>
 
       <dt class="col-sm-3">Składniki</dt>
