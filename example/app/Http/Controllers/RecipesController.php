@@ -148,6 +148,15 @@ class RecipesController extends Controller
       $search_text = $_GET['query'];
       $recipe = Recipe::where('title', 'LIKE', '%'.$search_text.'%')->get();
 
+
       return view('recipes.search', compact('recipe'));
+    }
+
+    public function search1()
+    {
+      $search1_text = $_GET['query1'];
+      $recip = Recipe::where('products', 'LIKE', '%'.$search1_text.'%')->get();
+
+      return view('recipes.search1', compact('recip'));
     }
 }

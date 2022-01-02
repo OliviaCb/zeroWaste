@@ -42,6 +42,7 @@ Route::get('/', function () {
 });
 
 Route::get('/search','App\Http\Controllers\RecipesController@search');
+Route::get('/search1','App\Http\Controllers\RecipesController@search1');
 
 Auth::routes();
 
