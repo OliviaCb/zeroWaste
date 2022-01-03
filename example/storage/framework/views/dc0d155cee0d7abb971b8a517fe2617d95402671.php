@@ -30,7 +30,7 @@
                 </div>
             </div>   <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Zdjęcie:</strong>
+                    <strong>Zdjęcie: (powinno być kwadratowe do poprawnego wyświetlania)</strong>
                     <input type="file" name="photo" class="form-control" placeholder="Zdjęcie">
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-dark">Submit</button>
+                <button type="submit" class="btn btn-dark">Zapisz</button>
             </div>
         </div>
         <br><br>

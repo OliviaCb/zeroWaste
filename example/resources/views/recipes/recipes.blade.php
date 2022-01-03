@@ -36,7 +36,7 @@
     <tr>
       <td>{{$recipe->title}}</td>
       <td>
-        <img src="{{ asset('uploads/recipes/'.$recipe->photo) }}" width="200px" height = "100px" alt="">
+        <img src="{{ asset('uploads/recipes/'.$recipe->photo) }}" width="200px" height = "200px" alt="">
       </td>
       <td>{{$recipe->products}}</td>
       <td>{{$recipe->food_processors}}</td>

@@ -36,7 +36,7 @@
     <tr>
       <td><?php echo e($recipe->title); ?></td>
       <td>
-        <img src="<?php echo e(asset('../public/uploads/recipes/'.$recipe->photo)); ?>" width="70px" height = "70px" alt="">
+        <img src="<?php echo e(asset('uploads/recipes/'.$recipe->photo)); ?>" width="200px" height = "200px" alt="">
       </td>
       <td><?php echo e($recipe->products); ?></td>
       <td><?php echo e($recipe->food_processors); ?></td>
