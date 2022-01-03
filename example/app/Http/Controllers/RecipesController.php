@@ -6,7 +6,7 @@ use App\Models\Recipe;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 use Illuminate\Support\Facades\File;
-
+use Auth;
 
 class RecipesController extends Controller
 {
@@ -56,6 +56,7 @@ class RecipesController extends Controller
                 $filename = time().'.'.$extension;
                 $file->move('../public/uploads/recipes',$filename);
                 $recipes->photo=$filename;
+                $owner = Auth::user()->name;
             }
 
             $recipes->products = $request->input('products');
@@ -84,7 +85,8 @@ class RecipesController extends Controller
             'food_processors' =>$request->input('food_processors'),
             'description' =>$request->input('description'),
             'time' =>$request->input('time'),
-            'level' =>$request->input('level')
+            'level' =>$request->input('level'),
+            'owner' =>$owner
         ]);
         //Recipe::create($request->all());
 

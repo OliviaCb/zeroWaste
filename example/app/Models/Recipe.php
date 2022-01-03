@@ -21,5 +21,6 @@ class Recipe extends Model
         'description',
         'time',
         'level',
+        'owner',
     ];
 }

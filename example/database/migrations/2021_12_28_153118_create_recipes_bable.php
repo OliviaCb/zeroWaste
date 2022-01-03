@@ -16,12 +16,13 @@ class CreateRecipesBable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->bigIncrements('recipe_id');
             $table->string('title');
-            $table->string('photo'); 
+            $table->string('photo');
             $table->string('products');
             $table->string('food_processors');
             $table->string('description');
             $table->integer('time');
             $table->string('level');
+            $table->string('owner');
 
         });
     }

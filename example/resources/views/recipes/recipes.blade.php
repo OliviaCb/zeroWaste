@@ -48,7 +48,7 @@
                         <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn btn-success">Wyświetl</a>
 
                         @auth
-                        @if (Auth::user()->role=='admin')
+                        @if (Auth::user()->role=='admin' or Auth::user()->name==$recipe->owner)
                         <a href="{{ route('recipes.edit', $recipe->recipe_id) }}" title="edytuj" class="btn btn-primary">Edytuj</a>
 
                         @csrf
