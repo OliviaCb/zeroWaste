@@ -20,7 +20,7 @@
         </div>
     @endif
 
-    <form action="{{ route('recipes.update', $recipe->recipe_id) }}" method="POST "enctype="multipart/form-data" >
+    <form action="{{ route('recipes.update', $recipe->recipe_id) }}" method="POST" enctype="multipart/form-data" >
         @csrf
         @method('PUT')
 
