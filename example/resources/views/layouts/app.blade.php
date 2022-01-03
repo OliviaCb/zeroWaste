@@ -41,15 +41,19 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
 
+
                         <li class="nav-item">
                             <a class="nav-link" href="/">Strona Główna</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                             <a class="nav-link" href="/about">O stronie</a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
+                                  @auth
                             <a class="nav-link" href="../recipes">Przepisy</a>
                                 </li>
+                                @endauth
+
 
                         @guest
                             @if (Route::has('login'))
@@ -67,6 +71,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -83,7 +88,9 @@
                             </li>
                         @endguest
                     </ul>
-                    <form role="search" class="search-form" type="get" action="{{ url('/search') }}">
+                      @auth
+
+                     <form role="search" class="search-form" type="get" action="{{ url('/search') }}">
                       <label>
                       <input style="margin-left:10px" class="form-control" name="query" type="serach" placeholder="Wyszukaj przepis po tytule">
                     </label>
@@ -105,6 +112,7 @@
                       </button>
                     </form>
 
+                    @endauth
                 </div>
             </div>
         </nav>

@@ -47,6 +47,8 @@
 
                         <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn btn-success">Wyświetl</a>
 
+                        @auth
+                        @if (Auth::user()->role=='admin')
                         <a href="{{ route('recipes.edit', $recipe->recipe_id) }}" title="edytuj" class="btn btn-primary">Edytuj</a>
 
                         @csrf
@@ -55,6 +57,8 @@
                         <button type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</button>
 
                         </button>
+                        @endif
+                        @endauth
                     </form>
                   </td>
     </tr>

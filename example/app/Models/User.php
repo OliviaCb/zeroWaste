@@ -25,6 +25,7 @@ class User extends Authenticatable
         'surname',
         'birthday',
         'gender',
+        'role',
 
     ];
 
@@ -46,4 +47,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function hasRole(string $role): bool
+        {
+            return $this->getAttribute('role') === $role;
+        }
 }
