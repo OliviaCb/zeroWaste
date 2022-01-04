@@ -28,31 +28,34 @@ Route::get('/about', 'App\Http\Controllers\PagesController@about');
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/recipes', 'RecipesController@index')->middleware('auth');
-Route::get('/users', 'UsersController@index');//->middleware('auth');
+Route::get('/recipes', 'RecipesController@index');
 
+Route::resource('users', 'App\Http\Controllers\UsersController');
 Route::get('/about', function () {
     return view('pages.about');
 });
-
-Route::resource('recipes', 'App\Http\Controllers\RecipesController')->middleware('auth');
-Route::resource('users', 'App\Http\Controllers\UsersController')->middleware('auth');
+// Route::get('/users/{id}', function ($id) {
+//     return 'Konto użytkownika ' . $id;
+// });
+Route::resource('recipes', 'App\Http\Controllers\RecipesController');
+Route::resource('users', 'App\Http\Controllers\UsersController');
 
 Route::get('/', function () {
     //return view('/auth/login');
     return view('pages.about');
 });
 
-Route::get('/search','App\Http\Controllers\RecipesController@search')->middleware('auth');
-Route::get('/search1','App\Http\Controllers\RecipesController@search1')->middleware('auth');
-
-
-Route::get('/usersearch','App\Http\Controllers\UsersController@search')->middleware('auth');
-Route::get('/usersearch1','App\Http\Controllers\UsersController@search1')->middleware('auth');
+Route::get('/search','App\Http\Controllers\RecipesController@search');
+Route::get('/search1','App\Http\Controllers\RecipesController@search1');
 
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\PagesController@index');
+
+Auth::routes();
+
+Route::get('/usersearch','App\Http\Controllers\UsersController@search')->middleware('auth');
+Route::get('/usersearch1','App\Http\Controllers\UsersController@search1')->middleware('auth');
 
 Auth::routes();
 
