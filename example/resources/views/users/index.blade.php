@@ -2,6 +2,6 @@
 
 @section('content')
 
-<h1>Przepisy</h1>
+<h1>Użytkownicy</h1>
 
 @endsection

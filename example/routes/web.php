@@ -28,25 +28,27 @@ Route::get('/about', 'App\Http\Controllers\PagesController@about');
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/recipes', 'RecipesController@index');
+Route::get('/recipes', 'RecipesController@index')->middleware('auth');
+Route::get('/users', 'UsersController@index');//->middleware('auth');
 
-Route::resource('users', 'App\Http\Controllers\UsersController');
 Route::get('/about', function () {
     return view('pages.about');
 });
-// Route::get('/users/{id}', function ($id) {
-//     return 'Konto użytkownika ' . $id;
-// });
-Route::resource('recipes', 'App\Http\Controllers\RecipesController');
-Route::resource('users', 'App\Http\Controllers\UsersController');
+
+Route::resource('recipes', 'App\Http\Controllers\RecipesController')->middleware('auth');
+Route::resource('users', 'App\Http\Controllers\UsersController')->middleware('auth');
 
 Route::get('/', function () {
     //return view('/auth/login');
     return view('pages.about');
 });
 
-Route::get('/search','App\Http\Controllers\RecipesController@search');
-Route::get('/search1','App\Http\Controllers\RecipesController@search1');
+Route::get('/search','App\Http\Controllers\RecipesController@search')->middleware('auth');
+Route::get('/search1','App\Http\Controllers\RecipesController@search1')->middleware('auth');
+
+
+Route::get('/usersearch','App\Http\Controllers\UsersController@search')->middleware('auth');
+Route::get('/usersearch1','App\Http\Controllers\UsersController@search1')->middleware('auth');
 
 Auth::routes();
 
@@ -64,13 +66,12 @@ Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showRese
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
-
-// USER DASHBOARD
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'user'])->name('dashboard');
-
-// ADMIN DASHBOARD
-Route::get('/admin_dashboard', function () {
-    return view('admin_dashboard');
-})->middleware(['auth', 'admin'])->name('admin_dashboard');
+// // USER DASHBOARD
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'user'])->name('dashboard');
+//
+// // ADMIN DASHBOARD
+// Route::get('/admin_dashboard', function () {
+//     return view('admin_dashboard');
+// })->middleware(['auth', 'admin'])->name('admin_dashboard');

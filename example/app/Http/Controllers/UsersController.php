@@ -6,8 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 use Illuminate\Support\Facades\File;
-
-
+use Auth;
+use Illuminate\Support\Facades\Hash;
 class UsersController extends Controller
 {
     /**
@@ -45,23 +45,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+      $users = new User;
 
-            $users = new User;
-            $users->title = $request->input('title');
-
-         if($request->hasfile('photo'))
-             {
-                $file = $request->file('photo');
-                $extension = $file->getClientOriginalExtension();
-                $filename = time().'.'.$extension;
-                $file->move('../public/uploads/users',$filename);
-                $users->photo=$filename;
-            }
-
-            $users->products = $request->input('products');
-            $users->food_processors = $request->input('food_processors');
-            $users->time = $request->input('time');
-
+            $users->name = $request->input('username');
+            $users->userpassword = $request->input('userpassword');
+            $users->email = $request->input('email');
+            $users->firstname = $request->input('firstname');
+            $users->surname = $request->input('surname');
+            $users->birthday= $request->input('birthday');
+            $users->gender= $request->input('gender');
+            $users->role= $request->input('role');
 
     //         $request->validate([
     //             'title' => 'required',
@@ -78,18 +71,19 @@ class UsersController extends Controller
         // ]);
 
         User::create([
-            'title' =>$request->input('title'),
-            'photo' =>$filename,
-            'products' =>$request->input('products'),
-            'food_processors' =>$request->input('food_processors'),
-            'description' =>$request->input('description'),
-            'time' =>$request->input('time'),
-            'level' =>$request->input('level')
+          'name' =>$users->name,
+          'email' => $users->email,
+          'password' => Hash::make($users->userpassword),
+          'firstname' => $users->firstname,
+          'surname' => $users->surname,
+          'birthday' => $users->birthday,
+          'gender' => $users->gender,
+          'role' => $users->role,
         ]);
         //User::create($request->all());
 
         return redirect()->route('users.index')
-            ->with('success', 'Przepis został dodany do bazy.');
+            ->with('success', 'Użytkownik został dodany do bazy.');
     }
 
     /**
@@ -99,9 +93,9 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show(User $User)
+    public function show(User $user)
     {
-       return view('users.show', compact('User'));
+       return view('users.show', compact('user'));
     }
 
     /**
@@ -110,9 +104,9 @@ class UsersController extends Controller
      * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $User)
+    public function edit(User $user)
     {
-        return view('users.edit', compact('User'));
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -122,18 +116,31 @@ class UsersController extends Controller
      * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $User)
+    public function update(Request $request, User $user)
     {
-        $request->validate([
-            'title' => 'required',
-            'products' => 'required',
-            'food_processors' => 'required',
-            'time' => 'required'
-        ]);
-        $User->update($request->all());
 
+        // $request->validate([
+        //   'email' => 'required',
+        //   'firstname' => 'required',
+        //   'surname' => 'required',
+        //   'birthday' => 'required',
+        //   'gender' => 'required',
+        //   'role' => 'required',
+        //
+        //
+        // ]);
+        $input = $request->all();
+            if (str_contains($input['password'], 'argon2id'))
+            {
+                $user->update($request->all());
+            }
+            else {
+                $user->update($request->all());
+                $input['password'] = Hash::make($input['password']);
+                $user->update($input);
+            }
         return redirect()->route('users.index')
-            ->with('success', 'Przepis został zaktualizowany');
+            ->with('success', 'Konto użytkownika zostało zaktualizowane');
     }
 
 
@@ -144,28 +151,21 @@ class UsersController extends Controller
      * @param  \App\Models\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $User)
+    public function destroy(User $user)
     {
-        $User->delete();
+        $user->delete();
 
         return redirect()->route('users.index')
-            ->with('success', 'Przepis został usunięty');
+            ->with('success', 'Użytkownik został usunięty');
     }
 
     public function search()
     {
       $search_text = $_GET['query'];
-      $User = User::where('title', 'LIKE', '%'.$search_text.'%')->get();
+      $user = User::where('name', 'LIKE', '%'.$search_text.'%')->get();
 
 
-      return view('users.search', compact('User'));
+      return view('users.search', compact('user'));
     }
 
-    public function search1()
-    {
-      $search1_text = $_GET['query1'];
-      $recip = User::where('products', 'LIKE', '%'.$search1_text.'%')->get();
-
-      return view('users.search1', compact('recip'));
-    }
 }

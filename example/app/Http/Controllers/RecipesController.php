@@ -56,12 +56,13 @@ class RecipesController extends Controller
                 $filename = time().'.'.$extension;
                 $file->move('../public/uploads/recipes',$filename);
                 $recipes->photo=$filename;
-                $owner = Auth::user()->name;
+
             }
 
             $recipes->products = $request->input('products');
             $recipes->food_processors = $request->input('food_processors');
             $recipes->time = $request->input('time');
+            $owner = Auth::user()->name;
 
 
     //         $request->validate([

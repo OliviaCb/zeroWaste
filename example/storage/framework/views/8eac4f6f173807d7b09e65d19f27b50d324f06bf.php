@@ -51,9 +51,15 @@
                                 </li> -->
                                 <li class="nav-item">
                                   <?php if(auth()->guard()->check()): ?>
-                            <a class="nav-link" href="../recipes">Przepisy</a>
+                            <a class="nav-link" href="/recipes">Przepisy</a>
                                 </li>
                                 <?php endif; ?>
+                                <?php if(auth()->guard()->check()): ?>
+                                <?php if(Auth::user()->role=='admin'): ?>
+                                <a class="nav-link" href="/users">Użytkownicy</a>
+                                </li>
+                              <?php endif; ?>
+                              <?php endif; ?>
 
 
                         <?php if(auth()->guard()->guest()): ?>

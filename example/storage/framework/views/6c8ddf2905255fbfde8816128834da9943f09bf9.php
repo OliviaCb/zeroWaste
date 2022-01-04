@@ -20,7 +20,7 @@
         </div>
     <?php endif; ?>
 
-    <form action="<?php echo e(route('recipes.update', $recipe->recipe_id)); ?>" method="POST "enctype="multipart/form-data" >
+    <form action="<?php echo e(route('recipes.update', $recipe->recipe_id)); ?>" method="POST" enctype="multipart/form-data" >
         <?php echo csrf_field(); ?>
         <?php echo method_field('PUT'); ?>
 
