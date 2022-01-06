@@ -70,12 +70,12 @@
 <!-- cards -->
 <div class="row">
   @foreach($recipes as $recipe)
-  <div class="col-3  cards mt-2 mb-3">
-    <div class="card mt-2 h-100" style="width: 18rem;">
+  <div class="col-3 mt-auto h-100 cards mt-2 mb-3">
+    <div class="card  " style="width: 18rem;">
       <img src="{{ asset('uploads/recipes/'.$recipe->photo) }}" class="card-img-top" height="300px" width="400px" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{$recipe->title}}</h5>
-        <p class="card-text">{{$recipe->products}}</p>
+        <p class="card-text text-limit ">{{$recipe->products}}</p>
         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         
           <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">

@@ -1,28 +1,36 @@
-html,
-body {
-    height: 100%;
-    font-size: 16px;
-    font-family: 'Oswald', sans-serif;
-}
-
-.gradient {
-    background: rgb(54, 162, 20);
-    background: linear-gradient(90deg, rgba(54, 162, 20, 1) 0%, rgba(255, 255, 255, 1) 100%);
-}
-
-.page-header {
-    margin-top: 4rem;
-    font-size: 20px;
-}
-
-.bc-slider {
-    background-color: white;
-}
-
-.zdjecia-slider {
-    height: 100%
-}
-
-.rejestracja {
-    padding-top: 70px;
-}
+    html,
+    body {
+        height: 100%;
+        font-size: 16px;
+        font-family: 'Oswald', sans-serif;
+    }
+    
+    .gradient {
+        background: rgb(54, 162, 20);
+        background: linear-gradient(90deg, rgba(54, 162, 20, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+    
+    .page-header {
+        margin-top: 4rem;
+        font-size: 20px;
+    }
+    
+    .bc-slider {
+        background-color: white;
+    }
+    
+    .zdjecia-slider {
+        height: 100%
+    }
+    
+    .rejestracja {
+        padding-top: 70px;
+    }
+    
+    .text-limit {
+        display: inline-block;
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
