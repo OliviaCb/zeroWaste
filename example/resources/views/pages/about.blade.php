@@ -26,9 +26,9 @@
                     <p>
                         tu coś mądrego napiszemy o naszej stronie dlaczego jest taka fajna i dlaczego warto z niej korzystać
                     </p>
-                    <button type="button" class="btn btn-dark btn-lg">Przeglądaj przepisy</button>
-                    <button type="button" class="btn btn-dark btn-lg">Dołącz do nas</button>
-
+                    <!-- <button type="button" class="btn btn-dark btn-lg">Przeglądaj przepisy</button> -->
+                    
+                  <a  href="{{ route('register') }}"class="btn btn-dark btn-lg">Dołącz do nas</a>
                 </div>
                 <div class="col-md-5"><img src="{{asset('uploads/recipes/Chef_Monochromatic.png')}}" alt="" srcset=""></div>
 

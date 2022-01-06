@@ -9,7 +9,7 @@
             <div class="rejestracja">
                 <div class="row align-items-center justify-content-center">
 
-                    <div class="col-md-4">
+                    <div class="col-md-7">
                         <div class="card">
                             <div class="card-header">{{ __('Zarejestruj nowego użytkownika') }}</div>
 

@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+        <div class="col-md-8"> -->
+      
+            <div class="container" style="padding-top:100px">
+          
             <link rel="stylesheet" href="{{ asset('css/jakis.css') }}" />
-            <div class="logowanie" style="padding-top:100px">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-5"><img src="{{asset('uploads/recipes/Lunch Break_Isometric.png')}}" alt="" srcset=""></div>
-                    <div class="col-md-7">
+
+                <div class="row align-items-center">
+                    <div class="col-md-6"><img src="{{asset('uploads/recipes/Lunch Break_Isometric.png')}}" alt="" srcset=""></div>
+               
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">{{ __('Logowanie do aplikacji') }}</div>
 
@@ -81,4 +84,5 @@
                 </div>
 
             </div>
+            
             @endsection
