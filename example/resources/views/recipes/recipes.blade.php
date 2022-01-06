@@ -77,21 +77,24 @@
         <h5 class="card-title">{{$recipe->title}}</h5>
         <p class="card-text text-limit ">{{$recipe->products}}</p>
         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        
-          <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">
-            <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn mt-auto btn-success">Wyświetl</a>
 
-            @auth
-            @if (Auth::user()->role=='admin' or Auth::user()->name==$recipe->owner)
-            <a href="{{ route('recipes.edit', $recipe->recipe_id) }}" title="edytuj" class="btn btn-primary">Edytuj</a>
-            @csrf
+        <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">
 
-            @method('DELETE')
-            <button type="submit" title="usuń" class="btn btn-danger">Usuń</button>
-            </button>
-      
-        @endif
-        @endauth
+          <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn btn-success">Wyświetl</a>
+
+          @auth
+          @if (Auth::user()->role=='admin' or Auth::user()->name==$recipe->owner)
+          <a href="{{ route('recipes.edit', $recipe->recipe_id) }}" title="edytuj" class="btn btn-primary">Edytuj</a>
+
+          @csrf
+          @method('DELETE')
+
+          <button type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</button>
+
+          </button>
+          @endif
+          @endauth
+        </form>
       </div>
     </div>
   </div>
