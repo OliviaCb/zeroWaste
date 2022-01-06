@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row" style="padding-top:120px">
+    <div class="row" style="padding-top:130px">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Edycja przepisu</h2>
@@ -36,7 +36,8 @@
                 <div class="form-group">
                     <strong>Zdjęcie:</strong>
 
-                    <input type="file" name="photo" value="{{ $recipe->photo }}" class="form-control" placeholder="Zdjęcie">
+                    <input type="file" name="photo" class="form-control" placeholder="Zdjęcie">
+                    <img src="{{ asset('uploads/recipes/'.$recipe->photo) }}" width="300px" height = "300px" alt="">
                 </div>
             </div>
 
@@ -76,7 +77,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-dark">Submit</button>
+                <button type="submit" class="btn btn-dark">Edytuj</button>
             </div>
         </div>
         <br><br>

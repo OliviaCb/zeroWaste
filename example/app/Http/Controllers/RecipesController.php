@@ -18,12 +18,12 @@ class RecipesController extends Controller
     public function index()
     {
         //$recipes = Recipe::all();
-      //  return view('recipes.recipes')->with('recipes', $recipes);
+        //  return view('recipes.recipes')->with('recipes', $recipes);
 
-        $recipes = Recipe::latest()->paginate(5);
+        $recipes = Recipe::latest()->paginate(8);
 
         return view('recipes.recipes', compact('recipes'))
-          ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -33,8 +33,8 @@ class RecipesController extends Controller
      */
     public function create()
     {
-      //
-         return view('recipes.create');
+        //
+        return view('recipes.create');
     }
 
     /**
@@ -46,48 +46,46 @@ class RecipesController extends Controller
     public function store(Request $request)
     {
 
-            $recipes = new Recipe;
-            $recipes->title = $request->input('title');
+        $recipes = new Recipe;
+        $recipes->title = $request->input('title');
 
-         if($request->hasfile('photo'))
-             {
-                $file = $request->file('photo');
-                $extension = $file->getClientOriginalExtension();
-                $filename = time().'.'.$extension;
-                $file->move('../public/uploads/recipes',$filename);
-                $recipes->photo=$filename;
+        if ($request->hasfile('photo')) {
+            $file = $request->file('photo');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('../public/uploads/recipes', $filename);
+            $recipes->photo = $filename;
+        }
 
-            }
-
-            $recipes->products = $request->input('products');
-            $recipes->food_processors = $request->input('food_processors');
-            $recipes->time = $request->input('time');
-            $owner = Auth::user()->name;
+        $recipes->products = $request->input('products');
+        $recipes->food_processors = $request->input('food_processors');
+        $recipes->time = $request->input('time');
+        $owner = Auth::user()->name;
 
 
-    //         $request->validate([
-    //             'title' => 'required',
-    //             if($request->hasFile('photo'))
-    //             {
-    // $file = $request->file('photo');
-    // $extension = $file->getClientOriginalExtension();
-    // $filename = time().'.'.$extension
-    //             }
-    //             'photo' => 'required',
-    //             'products' => 'required',
-    //             'food_processors' => 'required',
-    //             'time' => 'required'
+        //         $request->validate([
+        //             'title' => 'required',
+        //             if($request->hasFile('photo'))
+        //             {
+        // $file = $request->file('photo');
+        // $extension = $file->getClientOriginalExtension();
+        // $filename = time().'.'.$extension
+        //             }
+        //             'photo' => 'required',
+        //             'products' => 'required',
+        //             'food_processors' => 'required',
+        //             'time' => 'required'
         // ]);
 
         Recipe::create([
-            'title' =>$request->input('title'),
-            'photo' =>$filename,
-            'products' =>$request->input('products'),
-            'food_processors' =>$request->input('food_processors'),
-            'description' =>$request->input('description'),
-            'time' =>$request->input('time'),
-            'level' =>$request->input('level'),
-            'owner' =>$owner
+            'title' => $request->input('title'),
+            'photo' => $filename,
+            'products' => $request->input('products'),
+            'food_processors' => $request->input('food_processors'),
+            'description' => $request->input('description'),
+            'time' => $request->input('time'),
+            'level' => $request->input('level'),
+            'owner' => $owner
         ]);
         //Recipe::create($request->all());
 
@@ -104,7 +102,7 @@ class RecipesController extends Controller
 
     public function show(Recipe $recipe)
     {
-       return view('recipes.show', compact('recipe'));
+        return view('recipes.show', compact('recipe'));
     }
 
     /**
@@ -127,20 +125,38 @@ class RecipesController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
+        if ($request->hasfile('photo')) {
+            $file = $request->file('photo');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('../public/uploads/recipes', $filename);
+        }
+
         $request->validate([
             'title' => 'required',
             'products' => 'required',
             'food_processors' => 'required',
             'time' => 'required'
         ]);
-        $recipe->update($request->all());
+
+        //$recipe->update($request->all());
+
+        $recipe->update([
+            'title' => $request->input('title'),
+            'photo' => $filename,
+            'products' => $request->input('products'),
+            'food_processors' => $request->input('food_processors'),
+            'description' => $request->input('description'),
+            'time' => $request->input('time'),
+            'level' => $request->input('level'),
+        ]);
 
         return redirect()->route('recipes.index')
             ->with('success', 'Przepis został zaktualizowany');
     }
 
 
-//@param int $id
+    //@param int $id
     /**
      * Remove the specified resource from storage.
      *
@@ -157,18 +173,18 @@ class RecipesController extends Controller
 
     public function search()
     {
-      $search_text = $_GET['query'];
-      $recipe = Recipe::where('title', 'LIKE', '%'.$search_text.'%')->get();
+        $search_text = $_GET['query'];
+        $recipe = Recipe::where('title', 'LIKE', '%' . $search_text . '%')->get();
 
 
-      return view('recipes.search', compact('recipe'));
+        return view('recipes.search', compact('recipe'));
     }
 
     public function search1()
     {
-      $search1_text = $_GET['query1'];
-      $recip = Recipe::where('products', 'LIKE', '%'.$search1_text.'%')->get();
+        $search1_text = $_GET['query1'];
+        $recip = Recipe::where('products', 'LIKE', '%' . $search1_text . '%')->get();
 
-      return view('recipes.search1', compact('recip'));
+        return view('recipes.search1', compact('recip'));
     }
 }

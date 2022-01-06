@@ -12,14 +12,12 @@
     <title>Strona Główna</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="{{ asset('css/jakis.css') }}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    
     <link href="twest" rel="stylesheet">
 </head>
 </div>
 
-<header class="page-header gradient" >
+<header class="page-header gradient" style="padding-top:120px" >
     <div class="container">
         <div class="container position-relative">
          <div class="row align-items-center justify-content-center">

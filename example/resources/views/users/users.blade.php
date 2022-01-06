@@ -2,6 +2,7 @@
 
 @section('content')
 
+
                      <form role="search" class="search-form" type="get" action="{{ url('/usersearch') }}">
                       <label>
                       <input style="margin-left:10px" class="form-control" name="query" type="serach" placeholder="Wyszukaj użytkownika po nazwie">
