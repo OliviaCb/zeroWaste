@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="row">
+    <div class="row"style="padding-top:70px">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h1> {{ $recipe->title }}</h1>

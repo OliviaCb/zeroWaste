@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
+    <div class="row" style="padding-top:120px">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Edycja konta użytkownika</h2>

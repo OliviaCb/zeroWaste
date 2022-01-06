@@ -6,11 +6,23 @@ body {
 }
 
 .gradient {
-    background: rgb(131, 58, 180);
-    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(20, 162, 32, 1) 0%, rgba(252, 176, 69, 1) 100%);
+    background: rgb(54, 162, 20);
+    background: linear-gradient(90deg, rgba(54, 162, 20, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 .page-header {
     margin-top: 4rem;
     font-size: 20px;
+}
+
+.bc-slider {
+    background-color: white;
+}
+
+.zdjecia-slider {
+    height: 100%
+}
+
+.rejestracja {
+    padding-top: 70px;
 }

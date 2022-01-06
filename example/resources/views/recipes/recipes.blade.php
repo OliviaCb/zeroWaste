@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="row">
+<link rel="stylesheet" href="{{ asset('css/jakis.css') }}" />
+<div class="row" style="padding-top:70px">
        <div class="col-lg-12 margin-tb">
            <div class="pull-left">
                <h1>Przepisy</h1>
