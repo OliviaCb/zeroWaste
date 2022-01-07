@@ -12,7 +12,7 @@
     <title>Strona Główna</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo e(asset('css/jakis.css')); ?>" />
-    
+
     <link href="twest" rel="stylesheet">
 </head>
 </div>
@@ -24,10 +24,18 @@
                 <div class="col-md-5">
                     <h2>Strona ZeroWaste</h2>
                     <p>
-                        tu coś mądrego napiszemy o naszej stronie dlaczego jest taka fajna i dlaczego warto z niej korzystać
+                      W dzisiejszych czasach ludzie marnują dużo żywności. Celem tej strony jest
+                      rozwiązanie tego problemu. Ta aplikacja internetowa ma na celu pomóc ludziom
+                      ugotować coś lub stworzyć danie z niczego, tak aby produkty żywnościowe nie marnowały się.
+                      Ma to na celu ułatwić ludziom przygotować posiłek bez marnowania czasu na zastawianie się
+                      co z dostępnych w lodówce produktów mogą przygotować. Problem z marnowaniem żywności
+                      jest głośno poruszany od kilku lat, a nasz projekt może przyczynić się do tego, aby przynajmniej
+                      trochę ten problem zniwelować. Jest skierowany do wszystkich ludzi, ponieważ tematem
+                      przewodnim jest baza przepisów kulinarnych, a temat zero waste jest jedynie dodatkiem, do
+                      którego zachęcamy naszych użytkowników, lecz nie zmuszamy.
                     </p>
                     <!-- <button type="button" class="btn btn-dark btn-lg">Przeglądaj przepisy</button> -->
-                    
+
                   <a  href="<?php echo e(route('register')); ?>"class="btn btn-dark btn-lg">Dołącz do nas</a>
                 </div>
                 <div class="col-md-5"><img src="<?php echo e(asset('uploads/recipes/Chef_Monochromatic.png')); ?>" alt="" srcset=""></div>
@@ -104,12 +112,12 @@
 
                     <div class="col-md-6">
                         <h1 class="my-3">Nasza misja to:</h1>
-                        <p>Dlaczego powstała ta strona</p>
+                        <!--<p>Dlaczego powstała ta strona</p>-->
                         <ul>
-                            <li>Jestesmy najlepsi</li>
-                            <li>Jestesmy najlepsi</li>
-                            <li>Jestesmy najlepsi</li>
-                            <li>Jestesmy najlepsi</li>
+                            <li>Zbudowanie potężnej bazy z przepisami kulinarnymi</li>
+                            <li>Zapobieganie marnowania żywności</li>
+                            <li>Zaoszczędzenie czasu naszych użytkowników</li>
+                            <li>Odpowiedź na pytanie <B>"A CO BY TU DZISIAJ UGOTOWAĆ"</B></li>
                         </ul>
                     </div>
 
@@ -128,4 +136,5 @@
 </html>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\bukow\Documents\GitHub\zeroWaste\example\resources\views/pages/about.blade.php ENDPATH**/ ?>

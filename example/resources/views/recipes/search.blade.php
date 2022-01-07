@@ -18,51 +18,35 @@
            <p>{{ $message }}</p>
        </div>
    @endif
+<!-- cards -->
+<div class="row">
+  @foreach($recipe1 as $recipe)
+  <div class="col-3  cards mt-2">
+    <div class="card mt-2 h-100" style="width: 18rem;">
+      <img src="{{ asset('uploads/recipes/'.$recipe->photo) }}" class="card-img-top" height="300px" width="400px" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{$recipe->title}}</h5>
+        <p class="card-text">{{$recipe->products}}</p>
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 
-<table class="table table-bordered table-responsive-lg">
-  <thead>
-    <tr>
-      <th scope="col">Nazwa potrawy</th>
-      <th scope="col">Zdjęcie</th>
-      <th scope="col">Składniki</th>
-      <th scope="col">Urządzenia kuchenne</th>
-      <th scope="col">Czas przygotowania</th>
-      <th scope="col">Trudność przygotowania</th>
-      <th width="240px">Akcja</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($recipe as $recipe)
-    <tr>
-      <td>{{$recipe->title}}</td>
-      <td>
-        <img src="{{ asset('../public/uploads/recipes/'.$recipe->photo) }}" width="70px" height = "70px" alt="">
-      </td>
-      <td>{{$recipe->products}}</td>
-      <td>{{$recipe->food_processors}}</td>
-      <td>{{$recipe->time}} min</td>
-      <td>{{$recipe->level}}/5</td>
-      <td>
-      <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">
+          <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">
+            <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn mt-auto btn-success">Wyświetl</a>
 
-                        <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn btn-success">Wyświetl</a>
-                        @auth
-                        @if (Auth::user()->role=='admin' or Auth::user()->name==$recipe->owner)
-                        <a href="{{ route('recipes.edit', $recipe->recipe_id) }}" title="edytuj" class="btn btn-primary">Edytuj</a>
+            @auth
+            @if (Auth::user()->role=='admin' or Auth::user()->name==$recipe->owner)
+            <a href="{{ route('recipes.edit', $recipe->recipe_id) }}" title="edytuj" class="btn btn-primary">Edytuj</a>
+            @csrf
 
-                        @csrf
-                        @method('DELETE')
+            @method('DELETE')
+            <button type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</button>
+            </button>
 
-                        <button type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</button>
-
-                        </button>
-                        @endif
-                        @endauth
-                    </form>
-                  </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
-
+        @endif
+        @endauth
+      </div>
+    </div>
+  </div>
+  @endforeach
+</div>
+<!-- cards -->
 @endsection
