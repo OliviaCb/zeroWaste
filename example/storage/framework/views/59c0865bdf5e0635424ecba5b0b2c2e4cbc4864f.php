@@ -2,7 +2,7 @@
 
 <?php $__env->startSection('content'); ?>
 
-<div class="row">
+<div class="row" style="padding-top:120px">
        <div class="col-lg-12 margin-tb">
            <div class="pull-left">
                <h1>Przepisy</h1>
@@ -46,7 +46,8 @@
       <form action="<?php echo e(route('recipes.destroy', $recipe->recipe_id)); ?>" method="POST">
 
                         <a href="<?php echo e(route('recipes.show', $recipe->recipe_id)); ?>" title="wyświetl" class="btn btn-success">Wyświetl</a>
-
+                        <?php if(auth()->guard()->check()): ?>
+                        <?php if(Auth::user()->role=='admin' or Auth::user()->name==$recipe->owner): ?>
                         <a href="<?php echo e(route('recipes.edit', $recipe->recipe_id)); ?>" title="edytuj" class="btn btn-primary">Edytuj</a>
 
                         <?php echo csrf_field(); ?>
@@ -55,13 +56,14 @@
                         <button type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</button>
 
                         </button>
+                        <?php endif; ?>
+                        <?php endif; ?>
                     </form>
                   </td>
     </tr>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
-
 
 <?php $__env->stopSection(); ?>
 

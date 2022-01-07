@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <div class="row">
+    <div class="row" style="padding-top:130px">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Edycja przepisu</h2>
@@ -20,7 +20,7 @@
         </div>
     <?php endif; ?>
 
-    <form action="<?php echo e(route('recipes.update', $recipe->recipe_id)); ?>" method="POST "enctype="multipart/form-data" >
+    <form action="<?php echo e(route('recipes.update', $recipe->recipe_id)); ?>" method="POST" enctype="multipart/form-data" >
         <?php echo csrf_field(); ?>
         <?php echo method_field('PUT'); ?>
 
@@ -36,7 +36,8 @@
                 <div class="form-group">
                     <strong>Zdjęcie:</strong>
 
-                    <input type="file" name="photo" value="<?php echo e($recipe->photo); ?>" class="form-control" placeholder="Zdjęcie">
+                    <input type="file" name="photo" class="form-control" placeholder="Zdjęcie">
+                    <img src="<?php echo e(asset('uploads/recipes/'.$recipe->photo)); ?>" width="300px" height = "300px" alt="">
                 </div>
             </div>
 
@@ -76,7 +77,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-dark">Submit</button>
+                <button type="submit" class="btn btn-dark">Edytuj</button>
             </div>
         </div>
         <br><br>

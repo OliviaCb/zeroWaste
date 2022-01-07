@@ -18,7 +18,7 @@
            <p>{{ $message }}</p>
        </div>
    @endif
-
+<!--
 <table class="table table-bordered table-responsive-lg">
   <thead>
     <tr>
@@ -64,6 +64,7 @@
     @endforeach
   </tbody>
 </table>
+-->
 <!-- cards -->
 <div class="row">
   @foreach($recip as $recipe)
@@ -74,7 +75,7 @@
         <h5 class="card-title">{{$recipe->title}}</h5>
         <p class="card-text">{{$recipe->products}}</p>
         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-        
+
           <form action="{{ route('recipes.destroy', $recipe->recipe_id) }}" method="POST">
             <a href="{{ route('recipes.show', $recipe->recipe_id) }}" title="wyświetl" class="btn mt-auto btn-success">Wyświetl</a>
 
@@ -86,7 +87,7 @@
             @method('DELETE')
             <button type="submit" title="delete" title="usuń" class="btn btn-danger">Usuń</button>
             </button>
-      
+
         @endif
         @endauth
       </div>

@@ -2,6 +2,9 @@
 <html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
 <head>
+
+    
+<link rel="stylesheet" href="<?php echo e(asset('css/jakis.css')); ?>" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,15 +17,15 @@
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
 
     <!-- Styles -->
+    <link href="<?php echo e(asset('css/jakis.css')); ?>" rel="stylesheet">
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
                     <?php echo e(config('app.name', 'ZeroWaste')); ?>
@@ -42,15 +45,25 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
 
+
                         <li class="nav-item">
                             <a class="nav-link" href="/">Strona Główna</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                             <a class="nav-link" href="/about">O stronie</a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
-                            <a class="nav-link" href="../recipes">Przepisy</a>
+                                  <?php if(auth()->guard()->check()): ?>
+                            <a class="nav-link" href="/recipes">Przepisy</a>
                                 </li>
+                                <?php endif; ?>
+                                <?php if(auth()->guard()->check()): ?>
+                                <?php if(Auth::user()->role=='admin'): ?>
+                                <a class="nav-link" href="/users">Użytkownicy</a>
+                                </li>
+                              <?php endif; ?>
+                              <?php endif; ?>
+
 
                         <?php if(auth()->guard()->guest()): ?>
                             <?php if(Route::has('login')): ?>
@@ -69,6 +82,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <?php echo e(Auth::user()->name); ?>
 
+
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -86,7 +100,9 @@
                             </li>
                         <?php endif; ?>
                     </ul>
-                    <form role="search" class="search-form" type="get" action="<?php echo e(url('/search')); ?>">
+                      <?php if(auth()->guard()->check()): ?>
+
+                     <form role="search" class="search-form" type="get" action="<?php echo e(url('/search')); ?>">
                       <label>
                       <input style="margin-left:10px" class="form-control" name="query" type="serach" placeholder="Wyszukaj przepis po tytule">
                     </label>
@@ -108,6 +124,7 @@
                       </button>
                     </form>
 
+                    <?php endif; ?>
                 </div>
             </div>
         </nav>

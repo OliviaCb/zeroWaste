@@ -1,7 +1,7 @@
 
 
 <?php $__env->startSection('content'); ?>
-    <div class="row">
+    <div class="row" style="padding-top:120px">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Dodaj nowy przepis</h2>
@@ -26,37 +26,37 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Tytuł:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Tytuł">
+                    <input type="text" name="title" minlength="5" class="form-control" placeholder="Tytuł">
                 </div>
             </div>   <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Zdjęcie: (powinno być kwadratowe do poprawnego wyświetlania)</strong>
-                    <input type="file" name="photo" class="form-control" placeholder="Zdjęcie">
+                    <input type="file" name="photo" required class="form-control" placeholder="Zdjęcie">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Produkty:</strong>
-                    <textarea class="form-control" style="height:50px" name="products"
+                    <textarea class="form-control" minlength="5" style="height:50px" name="products"
                         placeholder="Produkty"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Maszyny kuchenne:</strong>
-                    <input type="text" name="food_processors" class="form-control" placeholder="Maszyny kuchenne">
+                    <input type="text" name="food_processors" requiered minlength="5" class="form-control" placeholder="Maszyny kuchenne">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Opis przygotowania:</strong>
-                    <input type="text" name="description" class="form-control" placeholder="Opis przygotowania">
+                    <input type="text" name="description" minlength="5" class="form-control" placeholder="Opis przygotowania">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Czas przygotowania:</strong>
-                    <input type="number" name="time" class="form-control" placeholder="Czas przygotowania">
+                    <strong>Czas przygotowania w minutach:</strong>
+                    <input type="number" name="time" required class="form-control" placeholder="Czas przygotowania w minutach">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
