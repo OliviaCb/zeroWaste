@@ -50,7 +50,7 @@ Route::get('/search1','App\Http\Controllers\RecipesController@search1');
 
 Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\PagesController@index');
+//Route::get('/about', 'App\Http\Controllers\PagesController@index');
 
 Auth::routes();
 

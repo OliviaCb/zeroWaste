@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-dark">Edytuj</button>
+                <button type="submit" class="btn btn-dark">Zapisz</button>
             </div>
         </div>
         <br><br>

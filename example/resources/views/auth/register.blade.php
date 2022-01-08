@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+         
             <link rel="stylesheet" href="{{ asset('css/jakis.css') }}" />
             <div class="rejestracja">
                 <div class="row align-items-center justify-content-center">

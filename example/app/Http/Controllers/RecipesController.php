@@ -125,11 +125,15 @@ class RecipesController extends Controller
      */
     public function update(Request $request, Recipe $recipe)
     {
+
+        //$recipe = Recipe::find($recipe->id);
+
         if ($request->hasfile('photo')) {
             $file = $request->file('photo');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('../public/uploads/recipes', $filename);
+            $recipe->photo = $filename;
         }
 
         $request->validate([
@@ -139,18 +143,26 @@ class RecipesController extends Controller
             'time' => 'required'
         ]);
 
+        $recipe->title = $request->input('title');
+        $recipe->products = $request->input('products');
+        $recipe->food_processors = $request->input('food_processors');
+        $recipe->description = $request->input('description');
+        $recipe->time = $request->input('time');
+        $recipe->level = $request->input('level');
+
         //$recipe->update($request->all());
 
-        $recipe->update([
-            'title' => $request->input('title'),
-            'photo' => $filename,
-            'products' => $request->input('products'),
-            'food_processors' => $request->input('food_processors'),
-            'description' => $request->input('description'),
-            'time' => $request->input('time'),
-            'level' => $request->input('level'),
-        ]);
+        // $recipe->update([
+        //     'title' => $request->input('title'),
+        //     'photo' => $filename,
+        //     'products' => $request->input('products'),
+        //     'food_processors' => $request->input('food_processors'),
+        //     'description' => $request->input('description'),
+        //     'time' => $request->input('time'),
+        //     'level' => $request->input('level'),
+        // ]);
 
+        $recipe->save();
         return redirect()->route('recipes.index')
             ->with('success', 'Przepis został zaktualizowany');
     }
