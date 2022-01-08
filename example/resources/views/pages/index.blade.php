@@ -35,8 +35,9 @@
                       którego zachęcamy naszych użytkowników, lecz nie zmuszamy.
                     </p>
                     <!-- <button type="button" class="btn btn-dark btn-lg">Przeglądaj przepisy</button> -->
-
+                    @guest
                   <a  href="{{ route('register') }}"class="btn btn-dark btn-lg">Dołącz do nas</a>
+                  @endguest
                 </div>
                 <div class="col-md-5"><img src="{{asset('uploads/recipes/Chef_Monochromatic.png')}}" alt="" srcset=""></div>
 
